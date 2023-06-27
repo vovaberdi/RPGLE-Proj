@@ -1,0 +1,6 @@
+                                            UNIQUE
+                R RMOVIE
+                  MVID          10  0
+                  MVNAME        30
+                  MVHOURS        1  0
+                K MVID

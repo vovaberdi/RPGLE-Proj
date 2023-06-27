@@ -1,0 +1,14 @@
+                                            UNIQUE
+                R RSHOW
+                  SHID          10  0
+                  SHHLID        10  0
+                  SHMVID        10  0
+                  SHDATE         8
+                  SHSTRHR        2  0
+                  SHENDHR        2  0
+                  SHHOURS        1  0
+                K SHID
+                K SHHLID
+                K SHMVID
+                K SHDATE
+                K SHSTRHR

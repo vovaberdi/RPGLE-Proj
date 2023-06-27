@@ -1,0 +1,10 @@
+                                            UNIQUE
+                R SUB
+                  SUBNAME       20
+                  SUBTEL        11
+                  SUBEMAIL      30
+                  SUBCC4         4  0
+                  SUBID         10  0
+                  SUBSTS         1
+                  SUBPAS        15
+                K SUBID

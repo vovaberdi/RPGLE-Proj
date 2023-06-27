@@ -1,0 +1,10 @@
+                                            UNIQUE
+                R RTIC
+                  TICSHWID      10  0
+                  TICLIN         2  0
+                  TICCHAIR       2  0
+                  TICSUBID      10  0
+                  TICCRDIF      10  0
+                K TICSHWID
+                K TICLIN
+                K TICCHAIR

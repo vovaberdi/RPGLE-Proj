@@ -1,0 +1,138 @@
+     A*%%TS  SD  20230621  121510  JBLTD9      REL-V7R5M0  5770-WDS
+     A*%%EC
+     A                                      DSPSIZ(24 80 *DS3)
+     A                                      CA03(03 'EXIT')
+     A                                      CA06(06 'RESUL')
+     A                                      CA05(05 'RESUL')
+     A          R TOP
+     A*%%TS  SD  20230621  121510  JBLTD9      REL-V7R5M0  5770-WDS
+     A                                  1 24'HALL SEATS PICK SCREEN'
+     A                                      DSPATR(UL)
+     A                                      COLOR(WHT)
+     A          R BOT
+     A*%%TS  SD  20230520  121855  JBLTD9      REL-V7R5M0  5770-WDS
+     A                                      OVERLAY
+     A                                 22  3'-----------------------------------
+     A                                      ------------------------------------
+     A                                      ------'
+     A                                      COLOR(BLU)
+     A                                 23  3'F3-EXIT'
+     A                                      COLOR(BLU)
+     A                                 23 13'F6-PAY'
+     A                                      COLOR(BLU)
+     A          R SFLR                      SFL
+     A            LINE           2Y 0O  6  6DSPATR(UL)
+     A                                      EDTCDE(Z)
+     A            C1             1A  O  6 10
+     A  61                                  COLOR(RED)
+     A            C2             1A  O  6 13
+     A  62                                  COLOR(RED)
+     A            C3             1A  O  6 16
+     A  63                                  COLOR(RED)
+     A            C4             1A  O  6 19
+     A  64                                  COLOR(RED)
+     A            C5             1A  O  6 22
+     A  65                                  COLOR(RED)
+     A            C6             1A  O  6 25
+     A  66                                  COLOR(RED)
+     A            C7             1A  O  6 28
+     A  67                                  COLOR(RED)
+     A            C8             1A  O  6 31
+     A  68                                  COLOR(RED)
+     A            C9             1A  O  6 34
+     A  69                                  COLOR(RED)
+     A            C10            1A  O  6 37
+     A  70                                  COLOR(RED)
+     A            C11            1A  O  6 40
+     A  71                                  COLOR(RED)
+     A            C12            1A  O  6 43
+     A  72                                  COLOR(RED)
+     A            C13            1A  O  6 46
+     A  73                                  COLOR(RED)
+     A            C14            1A  O  6 49
+     A  74                                  COLOR(RED)
+     A            C15            1A  O  6 52
+     A  75                                  COLOR(RED)
+     A            C16            1A  O  6 55
+     A  76                                  COLOR(RED)
+     A            C17            1A  O  6 58
+     A  77                                  COLOR(RED)
+     A            C18            1A  O  6 61
+     A  78                                  COLOR(RED)
+     A            C19            1A  O  6 64
+     A  79                                  COLOR(RED)
+     A            C20            1A  O  6 67
+     A  80                                  COLOR(RED)
+     A          R SFLCTL                    SFLCTL(SFLR)
+     A                                      OVERLAY
+     A                                      SFLSIZ(0099)
+     A                                      SFLPAG(0015)
+     A  31                                  SFLDSP
+     A  32                                  SFLDSPCTL
+     A  34                                  SFLCLR
+     A                                  5  6'L'
+     A                                      DSPATR(UL)
+     A  41                              5 10'1'
+     A                                      DSPATR(UL)
+     A  42                              5 13'2'
+     A                                      DSPATR(UL)
+     A  43                              5 16'3'
+     A                                      DSPATR(UL)
+     A  44                              5 19'4'
+     A                                      DSPATR(UL)
+     A  45                              5 22'5'
+     A                                      DSPATR(UL)
+     A  46                              5 25'6'
+     A                                      DSPATR(UL)
+     A  47                              5 28'7'
+     A                                      DSPATR(UL)
+     A  48                              5 31'8'
+     A                                      DSPATR(UL)
+     A  49                              5 34'9'
+     A                                      DSPATR(UL)
+     A  50                              5 37'10'
+     A                                      DSPATR(UL)
+     A  51                              5 40'1'
+     A                                      DSPATR(UL)
+     A  52                              5 43'2'
+     A                                      DSPATR(UL)
+     A  53                              5 46'3'
+     A                                      DSPATR(UL)
+     A  54                              5 49'4'
+     A                                      DSPATR(UL)
+     A  55                              5 52'5'
+     A                                      DSPATR(UL)
+     A  56                              5 55'6'
+     A                                      DSPATR(UL)
+     A  57                              5 58'7'
+     A                                      DSPATR(UL)
+     A  58                              5 61'8'
+     A                                      DSPATR(UL)
+     A  59                              5 64'9'
+     A                                      DSPATR(UL)
+     A  60                              5 67'20'
+     A                                      DSPATR(UL)
+     A                                  3  6'LINE:'
+     A            LINE           2S 0I  3 12RANGE(1 10)
+     A                                  3 26'POSITION:'
+     A            POSITION       2S 0I  3 36RANGE(1 10)
+     A          R NSFLR                     SFL
+     A            OP             2   B  6  4
+     A            TOTALCRD       8A  O  6 14
+     A          R NSFLCTL                   SFLCTL(NSFLR)
+     A*%%TS  SD  20230430  133546  JBLT        REL-V7R5M0  5770-WDS
+     A                                      OVERLAY
+     A  31                                  SFLDSP
+     A  32                                  SFLDSPCTL
+     A  34                                  SFLCLR
+     A  33                                  SFLEND(*MORE)
+     A                                      SFLSIZ(0011)
+     A                                      SFLPAG(0004)
+     A                                      WINDOW(7 7 14 50)
+     A                                      WDWBORDER((*CHAR 'X.X::X.X'))
+     A            POS            4S 0H      SFLRCDNBR
+     A*                                 2  6'TOTAL PAYMENT'
+     A*                                     DSPATR(UL)
+     A                                  2  6'OP'
+     A                                  2 19'CHOOSE WITH 1 AND EXIT'
+     A                                      DSPATR(UL)

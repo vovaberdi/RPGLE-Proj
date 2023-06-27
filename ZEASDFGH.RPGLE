@@ -1,0 +1,287 @@
+       dcl-f CARDPF    disk keyed usage(*UPDATE : *DELETE : *OUTPUT);
+       dcl-f TICPF  disk keyed usage(*UPDATE : *DELETE : *OUTPUT);
+       dcl-f SHOWPF  disk keyed usage(*INPUT);
+       dcl-f HALLPF  disk keyed usage(*INPUT);
+       dcl-f MOVIEPF  disk keyed usage(*INPUT);
+       dcl-f CRDL     disk keyed usage(*INPUT) RENAME(RCARD:RCARDL);
+       dcl-F MOVIE   WORKSTN SFILE(SFLR:RRN) sfile(nsflr:rrnp);
+
+
+       dcl-s rrn INT(3);
+       dcl-s rrnp INT(3);
+       dcl-s countt INT(3) inz(0);
+       dcl-s count INT(3);
+       dcl-s fillo INT(3);
+       dcl-s chairs int(10);
+       dcl-s loopc int(10);
+       dcl-s i int(10);
+       dcl-s j int(10);
+       dcl-s params1 char(10);
+       dcl-s params2 char(10);
+       dcl-s paramslin char(2);
+       dcl-s paramschair char(2);
+       dcl-s NumLines Int(5) Inz(20);
+       dcl-s StartIndicator Int(3) Inz(41);
+       dcl-s EndIndicator Int(3) Inz(60);
+
+       dcl-DS TT1;
+         N1             Char(2);
+         T3             Char(1)    inz('-');
+         N2             Char(2);
+         T4             Char(1)    inz('=');
+         TT2            Char(2);
+       end-DS;
+
+
+       DCL-DS LINEU;
+          C1;
+          C2;
+          C3;
+          C4;
+          C5;
+          C6;
+          C7;
+          C8;
+          C9;
+          C10;
+          C11;
+          C12;
+          C13;
+          C14;
+          C15;
+          C16;
+          C17;
+          C18;
+          C19;
+          C20;
+          LINEARR LIKE(C1) DIM(20) POS(1);
+       END-DS;
+
+       dcl-pr PRTTIC extpgm('PRTTIC');
+              params1 char(10) const;
+              params2 char(10) const;
+              paramslin char(2) const;
+              paramschair char(2) const;
+       end-pr;
+
+       dcl-pi ZEASDFGH;
+             param int(10);
+             param2 int(10);
+       end-pi;
+
+       dcl-ds DT1;
+       Y1             Char(4);
+       M1             Char(2);
+       D1             Char(2);
+       end-ds;
+       dcl-ds DT2;
+       D2             Char(2);
+       T1             Char(1)    inz('/');
+       M2             Char(2);
+       T2             Char(1)    inz('/');
+       Y2             Char(4);
+       end-ds;
+
+       exsr FILLSFL;
+       exfmt SFLCTL;
+       dow not(*in03);
+
+         if *in06;
+            exsr sf2;
+            *in06=*off;
+            elseif *in07;
+               exsr FILLSFL;
+               exfmt SFLCTL;
+               else;
+                  exsr UPDATESFL;
+         endif;
+
+         exfmt SFLCTL;
+       enddo;
+       *inlr=*on;
+
+       begsr chaircalc;
+         setll param2 RSHOW;
+            *in03 = %eof();
+         reade param2 RSHOW;
+            *in03 = %eof();
+         chain SHHLID RHALL;
+       endsr;
+
+       begsr exheadr;
+          for i = 1 to HLCHAIRS;
+            *in(StartIndicator + i - 1) = *on;
+          endfor;
+       endsr;
+
+       begsr FILLSFL;
+         exsr chaircalc;
+         exsr exheadr;
+         chain param2 RSHOW;
+         exsr WRKDATE;
+         *IN32=*ON;
+         chain shmvid RMOVIE;
+         write top;
+         write bot;
+         write SFLCTL;
+         rrn = 0;
+         for fillo = 1 by 1 to HLCHAIRS;
+            LINEARR(fillo) = 'O';
+         endfor;
+         for count = 1 BY 1 TO HLLINES;
+            rrn+=1;
+            LINE = count;
+            write SFLR;
+         endfor;
+         *in31=*ON;
+         exsr takenseat;
+       endsr;
+
+       begsr takenseat;
+          rrn = 0;
+          setll param2 RTIC;
+          reade param2 RTIC;
+          dow *in99 = *off;
+            *in99 = %eof(TICPF);
+            chain TICLIN SFLR;
+            if %found();
+               if TICCHAIR < 21;
+               rrn = TICLIN;
+               LINEARR(TICCHAIR) = 'R';
+               *in(EndIndicator + TICCHAIR) = *on;
+               update SFLR;
+               endif;
+            endif;
+            reade param2 RTIC;
+              *in99 = %eof(TICPF);
+            exsr helpercol;
+          enddo;
+       endsr;
+
+       begsr helpercol;
+         if TICLIN = rrn;
+            else;
+            for i = 1 to 20;
+               *in(EndIndicator + i) = *off;
+            endfor;
+         endif;
+       endsr;
+
+       begsr testm;
+         for count = 1 by 1 to HLLINES;
+            rrn+=1;
+            LINE = count;
+            for j = 1 by 1 to HLCHAIRS;
+               chain line SFLR;
+               if LINEARR(j) = 'X';
+                  countt=1;
+                  dsply 'buying';
+                  exsr buy;
+               endif;
+            endfor;
+         endfor;
+       endsr;
+
+       begsr UPDATESFL;
+         for i = 1 to 20;
+               *in(EndIndicator + i) = *off;
+         endfor;
+         j=0;
+         chain LINE SFLR;
+         if %found();
+            LINEARR(POSITION) = 'X';
+            for j = 1 by 1 to HLCHAIRS;
+               if LINEARR(j) = 'R';
+               *in(EndIndicator + j) = *on;
+               endif;
+            endfor;
+            update SFLR;
+            else;
+            dsply 'choose chair';
+         endif;
+       endsr;
+
+
+       begsr sf2;
+         *in32=*on;
+         *in34=*on;
+         setll param RCARDL;
+         reade param RCARDL;
+          *in99 = %error();
+          *in99 = %eof();
+         dow *IN03 = *off;
+            exsr TOT;
+            write nsflctl;
+             *in34 = *Off;
+            dow not %eof(CRDL);
+               if not *in99;
+                  rrnp = rrnp + 1;
+               endif;
+               if not *in99;
+                write nsflr;
+             endif;
+             reade param RCARDL;
+              *in99 = %error();
+              *in99 = %eof();
+              *In33 = %eof();
+            enddo;
+            if rrnp>0;
+               *in31 = *on;
+            endif;
+            pos = 1;
+            exfmt  nsflctl;
+            readc nsflr;
+            if OP = '1';
+               if CRDSTS = 'A';
+                  exsr testm;
+                  else;
+                     dsply 'CRDSTS = dissabled';
+               endif;
+               clear op;
+            endif;
+         enddo;
+       endsr;
+
+       begsr buy;
+         if %int(TT2) > countt;
+            setll CRDID RCARD;
+            read RCARD;
+            CRDUSED += countt;
+            update RCARD;
+
+            TICSHWID = param2;
+            TICLIN = line;
+            TICCHAIR = j;
+            TICSUBID = param;
+            TICCRDIF = CRDID;
+            // TICSUBID = TICSUBID;
+            exsr prnt;
+            write RTIC;
+         endif;
+       endsr;
+
+       begsr TOT;
+             N1 = %trim(%char(CRDQTY));
+             N2 = %trim(%char(CRDUSED));
+             TT2 = %trim(%char(CRDQTY - CRDUSED));
+             TOTALCRD = N1 + T3 + N2 + T4 + TT2;
+       endsr;
+
+       begsr prnt;
+         DSPLY 'PRINT';
+         params1 = %char(param);
+         params2 = %char(param2);
+         paramslin = %char(line);
+         paramschair = %char(j);
+         callp PRTTIC(params1: params2: paramslin: paramschair);
+       endsr;
+
+         begsr WRKDATE;
+            DT1 = SHDATE;
+            Y2 = Y1;
+            M2 = M1;
+            D2 = D1;
+            MVDATE = DT2;
+        endsr;
+
+

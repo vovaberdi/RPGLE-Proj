@@ -1,0 +1,35 @@
+     A          R HEAD
+     A                                  1  6'-------TICKET-------'
+     A          R TICKET
+     A                                     5'SUB NAME:'
+     A                                      SPACEB(2)
+     A            SUBNAME   R             +2REFFLD(SUB/SUBNAME +
+     A                                         JBP9/SUBPF)
+     A                                     5'MOVIE:'
+     A                                      SPACEB(1)
+     A            MVNAME    R             +2REFFLD(RMOVIE/MVNAME +
+     A                                         JBP9/MOVIEPF)
+     A                                     5'HALL:'
+     A                                      SPACEB(1)
+     A            HLNAME    R             +2REFFLD(RHALL/HLNAME +
+     A                                         JBP9/HALLPF)
+     A                                     5'DATE:'
+     A                                      SPACEB(1)
+     A            DATE          10        +2
+     A                                     5'TIME:'
+     A                                      SPACEB(1)
+     A            SHSTRHR   R             +2REFFLD(RSHOW/SHSTRHR +
+     A                                         JBP9/SHOWPF)
+     A                                    +1'-'
+     A            SHENDHR   R             +1REFFLD(RSHOW/SHENDHR +
+     A                                         JBP9/SHOWPF)
+     A                                     5'LINE:'
+     A                                      SPACEB(1)
+     A            LINE           2        +2
+     A                                     5'CHAIR:'
+     A                                      SPACEB(1)
+     A            CHAIR          2        +2
+     A                                     5'-----------------------'
+     A                                      SPACEB(1)
+     A          R FOOT
+     A                                      SKIPB(1)

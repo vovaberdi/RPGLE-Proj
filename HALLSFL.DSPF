@@ -1,0 +1,98 @@
+     A*%%TS  SD  20230520  121700  JBLTD9      REL-V7R5M0  5770-WDS
+     A*%%EC
+     A                                      DSPSIZ(24 80 *DS3)
+     A                                      CF01(01 'CITIES')
+     A                                      CA03(03 'EXIT')
+     A                                      CA04(04 'WRITE')
+     A                                      CA06(06 'ADD')
+     A                                      CF02(02 'UPDATE')
+     A          R KOT
+     A*%%TS  SD  20230520  121700  JBLTD9      REL-V7R5M0  5770-WDS
+     A                                  2 28'HALLS HANDLING PROGRAM'
+     A                                      DSPATR(RI)
+     A                                      COLOR(WHT)
+     A                                  2 71DATE
+     A                                      EDTCDE(Y)
+     A          R BOT
+     A*%%TS  SD  20230520  121404  JBLTD9      REL-V7R5M0  5770-WDS
+     A                                      OVERLAY
+     A                                 21  3'-----------------------------------
+     A                                      ------------------------------------
+     A                                      ------'
+     A                                      COLOR(BLU)
+     A                                 22 13'F3-exit'
+     A                                      COLOR(BLU)
+     A                                 22 28'F6-add'
+     A                                      COLOR(BLU)
+     A                                 22 03'F1-SHOWCOMP'
+     A                                      COLOR(BLU)
+     A                                 22 16'F4-ADDNEW'
+     A                                      COLOR(BLU)
+     A                                 23  3'2-update'
+     A                                      COLOR(BLU)
+     A                                 23 13'4-delete'
+     A                                      COLOR(BLU)
+     A                                 23 23'8-COUPONS'
+     A                                      COLOR(BLU)
+     A          R SFLR                      SFL
+     A            OP             1   B  7  3
+     A            HLID          10  0O  7 13
+     A            HLNAME        15   O  7 26
+     A            HLLINES        2  0O  7 45
+     A            HLCHAIRS       2  0O  7 53
+     A          R CTLR                      SFLCTL(SFLR)
+     A*****
+     A                                      OVERLAY
+     A  31                                  SFLDSP
+     A  32                                  SFLDSPCTL
+     A  34                                  SFLCLR
+     A  33                                  SFLEND(*MORE)
+     A                                      SFLSIZ(0011)
+     A                                      SFLPAG(0004)
+     A            POS            4S 0H      SFLRCDNBR
+     A                                  6  3'OP'
+     A                                      DSPATR(UL)
+     A                                  6 13'HALL----ID'
+     A                                      DSPATR(UL)
+     A                                  6 26'HALL NAME'
+     A                                      DSPATR(UL)
+     A                                  6 45'LINES'
+     A                                      DSPATR(UL)
+     A                                  6 53'CHAIRS'
+     A                                      DSPATR(UL)
+     A          R ALLF
+     A*%%TS  SD  20230502  085757  JBLTD9      REL-V7R5M0  5770-WDS
+     A                                      OVERLAY
+     A                                  7  2'ITID:'
+     A                                  9  2'COMP NAME:'
+     A                                 11  2'IT NAME:'
+     A  52                              5  2'UPDATE'
+     A  54                              5  2'DELETE'
+     A  56                              5  2'NEW'
+     A  58                              5  2'DISPLAY'
+     A                                      DSPATR(HI)
+     A            HLID          10  0B  7 17
+     A N56                                  DSPATR(PR)
+     A            HLNAME        15   B  9 17
+     A  54
+     AO 58                                  DSPATR(PR)
+     A            HLLINES        2  0B 11 17
+     A  54
+     AO 58                                  DSPATR(PR)
+     A          R NSFLR                     SFL
+     A            OP             1   B  5  3
+     A            ICMID         10   O  5  9
+     A          R NSFLCTL                   SFLCTL(NSFLR)
+     A************
+     A                                      OVERLAY
+     A  31                                  SFLDSP
+     A  32                                  SFLDSPCTL
+     A  34                                  SFLCLR
+     A  33                                  SFLEND(*MORE)
+     A                                      SFLSIZ(0007)
+     A                                      SFLPAG(0005)
+     A                                      WINDOW(5 5 16 30)
+     A                                      WDWBORDER((*CHAR 'X.X::X.X'))
+     A            POS            4S 0H      SFLRCDNBR
+     A                                  2  9'COMPANY NAME'
+     A                                      DSPATR(UL)
