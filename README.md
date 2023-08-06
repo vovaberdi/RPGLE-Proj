@@ -10,7 +10,9 @@ Interactive Seat Selection: The app provides an immersive experience by displayi
 
 Elegant User Interface: With meticulous attention to detail, the app boasts a visually appealing user interface that enhances user engagement and simplifies navigation.
 
+Ticket Printing: After a successful ticket purchase, the app goes the extra mile by automatically generating and printing tickets for the user. This feature adds convenience and a touch of nostalgia to the movie-going experience.
+
 Elevate Your Movie Experience:
-Experience the intersection of technology and entertainment with my AS400 RPG Movie Ticket App. Whether it's managing databases seamlessly or providing an elegant seat selection process, this application redefines user interaction within the realm of movie ticketing.
+Experience the intersection of technology and entertainment with my AS400 RPG Movie Ticket App. Whether it's managing databases seamlessly, providing an elegant seat selection process, or offering automatic ticket printing, this application redefines user interaction within the realm of movie ticketing.
 
 Unlock a New Movie-Going Era: AS400 RPG Movie Ticket App
