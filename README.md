@@ -16,3 +16,5 @@ Elevate Your Movie Experience:
 Experience the intersection of technology and entertainment with my AS400 RPG Movie Ticket App. Whether it's managing databases seamlessly, providing an elegant seat selection process, or offering automatic ticket printing, this application redefines user interaction within the realm of movie ticketing.
 
 Unlock a New Movie-Going Era: AS400 RPG Movie Ticket App
+
+![img](https://github.com/vovaberdi/RPGLE-Proj/blob/main/untitled%20folder/Screen%20Shot%202023-08-21%20at%2010.16.32.png)
