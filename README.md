@@ -17,4 +17,29 @@ Experience the intersection of technology and entertainment with my AS400 RPG Mo
 
 Unlock a New Movie-Going Era: AS400 RPG Movie Ticket App
 
+The full flow of the pgm here : 
+
 ![img](https://github.com/vovaberdi/RPGLE-Proj/blob/main/untitled%20folder/Screen%20Shot%202023-08-21%20at%2010.16.32.png)
+
+![img](https://github.com/vovaberdi/RPGLE-Proj/blob/main/untitled%20folder/Screen%20Shot%202023-08-21%20at%2010.17.00.png)
+
+![img](https://github.com/vovaberdi/RPGLE-Proj/blob/main/untitled%20folder/Screen%20Shot%202023-08-21%20at%2010.17.18.png)
+
+![img](https://github.com/vovaberdi/RPGLE-Proj/blob/main/untitled%20folder/Screen%20Shot%202023-08-21%20at%2010.17.44.png)
+
+![img](https://github.com/vovaberdi/RPGLE-Proj/blob/main/untitled%20folder/Screen%20Shot%202023-08-21%20at%2010.17.54.png)
+
+![img](https://github.com/vovaberdi/RPGLE-Proj/blob/main/untitled%20folder/Screen%20Shot%202023-08-21%20at%2010.18.04.png)
+
+![img](https://github.com/vovaberdi/RPGLE-Proj/blob/main/untitled%20folder/Screen%20Shot%202023-08-21%20at%2010.18.12.png)
+
+![img](https://github.com/vovaberdi/RPGLE-Proj/blob/main/untitled%20folder/Screen%20Shot%202023-08-21%20at%2010.18.24.png)
+
+![img](https://github.com/vovaberdi/RPGLE-Proj/blob/main/untitled%20folder/Screen%20Shot%202023-08-21%20at%2010.18.33.png)
+
+![img](https://github.com/vovaberdi/RPGLE-Proj/blob/main/untitled%20folder/Screen%20Shot%202023-08-21%20at%2010.19.08.png)
+
+![img](https://github.com/vovaberdi/RPGLE-Proj/blob/main/untitled%20folder/Screen%20Shot%202023-08-21%20at%2010.19.21.png)
+
+![img](https://github.com/vovaberdi/RPGLE-Proj/blob/main/untitled%20folder/Screen%20Shot%202023-08-21%20at%2010.16.13.png)
+
